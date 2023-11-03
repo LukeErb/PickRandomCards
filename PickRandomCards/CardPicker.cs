@@ -14,7 +14,16 @@ namespace PickRandomCards
             string[] pickedCards = new string[numberOfCards];
             for (int i = 0; i < numberOfCards; i++)
             {
-                pickedCards[i] = RandomValue() + " of " + RandomSuit();
+                string cardToTest = $"{RandomValue()} of {RandomSuit()}";
+
+                if (pickedCards.Contains(cardToTest))
+                {
+                    i--;
+                }
+                else
+                {
+                    pickedCards[i] = cardToTest;
+                }
             }
             return pickedCards; 
         }
